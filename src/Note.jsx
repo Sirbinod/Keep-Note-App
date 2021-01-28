@@ -8,7 +8,7 @@ const Note = () =>{
             <h1> Note</h1>
             <br/>
             <p>what is the name</p>
-            <button>
+            <button className="btn">
                 <DeleteOutlineIcon className="deleteIcon" />
             </button>
         </div>
