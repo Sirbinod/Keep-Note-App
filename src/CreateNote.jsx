@@ -4,6 +4,7 @@ import AddIcon from "@material-ui/icons/Add";
 
 
 const CreateNote = (props) =>{
+    const [expand, setExpand] = useState();
     const [note, setNote] = useState({
         title: "",
         content: "",
@@ -26,15 +27,18 @@ const CreateNote = (props) =>{
         });
         
     }; 
+    const expandIt = () =>{
+        setExpand(true);
+    }
     return (
         <>
         <div className="main_note">
             <form>
-                <input type="text" name ="title" value={note.title} onChange={InputEvent} placeholder="Title" autoComplete="off"/>
-                <textarea rows="" colume="" name ="content" value={note.content} onChange={InputEvent} placeholder='write a note...'/>
-                <Button onClick={addEvent}>
+                {expand?<input type="text" name ="title" value={note.title} onChange={InputEvent} placeholder="Title" autoComplete="off"/> :null}
+                <textarea rows="" colume="" name ="content" value={note.content} onChange={InputEvent} placeholder='write a note...' onClick={expandIt}/>
+                {expand?<Button onClick={addEvent}>
                     <AddIcon className="plus_sign"/>
-                </Button>
+                </Button> :null}
             </form>
         </div>
         </>

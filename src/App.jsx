@@ -11,7 +11,14 @@ const App = () =>{
         setAdditem((prevData)=>{
             return [...prevData, note];  
         });
-        console.log(note);
+        // console.log(note);
+    };
+    const onDelete =(id)=>{
+        setAdditem((oldData) =>
+        oldData.filter((curData, index) =>{
+            return index !== id;
+        })
+        )
     };
     return (
         <>
@@ -24,6 +31,7 @@ const App = () =>{
                     id={i}
                     title={val.title}
                     content={val.content}
+                    deleteItem={onDelete}
                     />
         })}
         <Footer/>
